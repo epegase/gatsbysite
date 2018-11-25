@@ -36,10 +36,10 @@ class BlogPost extends Component {
                     <p>ANNEE : {anne}</p>
                     <p>CATEGORIE : {catgorie}</p>
                 </div>
-                <div dangerouslySetInnerHTML = {{__html: documentToHtmlString(notes)}}/>
-                <div dangerouslySetInnerHTML = {{__html: documentToHtmlString(prambule)}}/>
-                <div dangerouslySetInnerHTML = {{__html: documentToHtmlString(dispositif)}}/>
-                <div dangerouslySetInnerHTML = {{__html: documentToHtmlString(annexes)}}/>
+                <div dangerouslySetInnerHTML = {{__html: documentToHtmlString(notes, options)}}/>
+                <div dangerouslySetInnerHTML = {{__html: documentToHtmlString(prambule, options)}}/>
+                <div dangerouslySetInnerHTML = {{__html: documentToHtmlString(dispositif, options)}}/>
+                <div dangerouslySetInnerHTML = {{__html: documentToHtmlString(annexes, options)}}/>
                 <div>
                     <p>Lien PDF {pdf.title}</p>
                     <p>Publié le : {publishDate}</p>
