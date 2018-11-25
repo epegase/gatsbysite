@@ -70,7 +70,7 @@ class BlogPost extends Component {
                 </div>
 
                 <div>
-                    <p>Lien PDF {pdf.file.url}</p>
+                    <p>Lien PDF {pdf.title}</p>
                     <p>Publié le : {publishDate}</p>
                     <ul>{tags}</ul>
                 </div>
