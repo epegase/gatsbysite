@@ -36,41 +36,12 @@ class BlogPost extends Component {
                     <p>ANNEE : {anne}</p>
                     <p>CATEGORIE : {catgorie}</p>
                 </div>
-
+                <div dangerouslySetInnerHTML = {{__html: documentToHtmlString(notes)}}/>
+                <div dangerouslySetInnerHTML = {{__html: documentToHtmlString(prambule)}}/>
+                <div dangerouslySetInnerHTML = {{__html: documentToHtmlString(dispositif)}}/>
+                <div dangerouslySetInnerHTML = {{__html: documentToHtmlString(annexes)}}/>
                 <div>
-                    {notes.content.map(c => (
-                        <div data-nodetype={c.nodeType}>
-                             {c.content.map(v => (
-                                <div>{v.value}</div>
-                            ))}
-                        </div>
-                         ))}
-                </div>
-
-               <div>
-                    {prambule.content.map(c => (
-                        <div data-nodetype={c.nodeType}>
-                             {c.content.map(v => (
-                                <div>{v.value}</div>
-                            ))}
-                        </div>
-                         ))}
-                </div>
-
-               <div dangerouslySetInnerHTML = {{__html: documentToHtmlString(dispositif)}}/>
-
-               <div>
-                    {annexes.content.map(c => (
-                        <div data-nodetype={c.nodeType}>
-                             {c.content.map(v => (
-                                <div>{v.value}</div>
-                            ))}
-                        </div>
-                         ))}
-                </div>
-
-                <div>
-                    <p>Lien PDF {pdf.file.url}</p>
+                    <p>Lien PDF {pdf.title}</p>
                     <p>Publié le : {publishDate}</p>
                     <ul>{tags}</ul>
                 </div>
