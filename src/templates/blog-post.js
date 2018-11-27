@@ -41,7 +41,7 @@ class BlogPost extends Component {
                 <div dangerouslySetInnerHTML = {{__html: documentToHtmlString(dispositif)}}/>
                 <div dangerouslySetInnerHTML = {{__html: documentToHtmlString(annexes)}}/>
                 <div>
-                    <p>Lien PDF {pdf.title}</p>
+                    <p>Lien PDF {pdf}</p>
                     <p>Publié le : {publishDate}</p>
                     <ul>{tags}</ul>
                 </div>
@@ -60,68 +60,71 @@ export default BlogPost
 export const pageQuery = graphql `
     query blogPostQuery($slug: String!) {
         contentfulBlogPost(slug: {eq: $slug}) {
-            title
-            slug
-            idActe
-            nature
-            langue
-            anne
-            catgorie
-            notes {
-                nodeType
-                content {
-                    nodeType
-                    content {
-                        value
-                        nodeType
-                        marks {
-                            type
-                        }
-                    }
+        title
+        idActe
+        nature
+        slug
+        langue
+        anne
+        catgorie
+        notes {
+          nodeType
+          content {
+              nodeType
+            	content {
+            	  value
+            	  nodeType
+                marks {
+                  type
                 }
-            }
-            prambule {
-                nodeType
-                content {
-                    nodeType
-                    content {
-                        value
-                    }
+            	}
+          }
+        }
+        prambule {
+          nodeType
+          content {
+              nodeType
+            	content {
+            	  value
+            	  nodeType
+            	}
+          }
+        }
+        dispositif {
+          nodeType
+          content {
+              nodeType
+            	content {
+            	  value
+            	  nodeType
+                marks {
+                  type
                 }
-            }
-            dispositif {
-                nodeType
-                content {
-                    nodeType
-                    content {
-                        value
-                        nodeType
-                        marks {
-                            type
-                        }
-                    }
-                }
-            }
-            annexes {
-                nodeType
-                content {
-                    nodeType
-                    content {
-                        value
-                    }
-                }
-            }
-            pdf {
-                title
-                description
-                file {
-                  url
-                  fileName
-                  contentType
-                }
-            }
-            publishDate
-            tags
+            	}
+          }
+        }
+        annexes {
+          nodeType
+          content {
+              nodeType
+            	content {
+            	  value
+            	  nodeType
+            	}
+          }
+        }
+        pdf {
+          title
+          description
+          file {
+            url
+            fileName
+            contentType
+          }
+          
+        }
+        publishDate
+        tags
         }
     }
 `
